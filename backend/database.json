@@ -1,0 +1,35 @@
+{
+  "APP-B33B6A04": {
+    "age": 30,
+    "gender": "Male",
+    "marital_status": "Married",
+    "dependents": 0,
+    "education_level": "Graduate",
+    "employment_status": "Salaried",
+    "employer_category": "Private",
+    "applicant_income": 17000000.0,
+    "coapplicant_income": 3000000.0,
+    "savings": 20000000.0,
+    "collateral_value": 12000000.0,
+    "existing_loans": 1,
+    "dti_ratio": 0.3,
+    "credit_score": 750,
+    "loan_amount": 34000000.0,
+    "loan_term": 36,
+    "loan_purpose": "Personal",
+    "property_area": "Urban",
+    "applicant_name": null,
+    "officer_id": "local-admin",
+    "officer_name": "Admin Lokal",
+    "prediction": "Approved",
+    "confidence": 0.74,
+    "risk_factors": [
+      "Nilai jaminan/agunan terlalu rendah"
+    ],
+    "id": "APP-B33B6A04",
+    "status": "Rejected",
+    "created_at": "2026-05-15T07:16:57.890981",
+    "updated_at": "2026-05-15T07:52:50.681117",
+    "officer_override": "Admin Lokal"
+  }
+}
