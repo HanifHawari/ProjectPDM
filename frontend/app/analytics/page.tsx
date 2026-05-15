@@ -10,7 +10,7 @@ import { useAppStore } from "@/stores/useAppStore";
 
 function AnalyticsContent() {
   const { summary, loadingSummary, applications, loadSummary, loadApplications } = useAppStore();
-  useEffect(() => { loadSummary(); loadApplications(); }, []);
+  useEffect(() => { loadSummary(); loadApplications(); }, [loadSummary, loadApplications]);
 
   return (
     <div className="flex h-screen overflow-hidden">

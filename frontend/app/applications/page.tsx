@@ -8,7 +8,7 @@ import { useAppStore } from "@/stores/useAppStore";
 
 function ApplicationsContent() {
   const { loadApplications } = useAppStore();
-  useEffect(() => { loadApplications(); }, []);
+  useEffect(() => { loadApplications(); }, [loadApplications]);
 
   return (
     <div className="flex h-screen overflow-hidden">

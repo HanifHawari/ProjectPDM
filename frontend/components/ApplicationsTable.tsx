@@ -145,7 +145,7 @@ export function ApplicationsTable() {
   const [selected, setSelected] = useState<Application | null>(null);
   const [search, setSearch] = useState("");
 
-  useEffect(() => { loadApplications(); }, []);
+  useEffect(() => { loadApplications(); }, [loadApplications]);
 
   const filtered = search
     ? applications.filter((a) =>

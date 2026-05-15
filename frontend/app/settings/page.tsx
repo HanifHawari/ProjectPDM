@@ -3,7 +3,7 @@
 import { AuthGuard } from "@/components/AuthGuard";
 import { Sidebar } from "@/components/Sidebar";
 import { useAuth } from "@/contexts/AuthContext";
-import { Shield, Info } from "lucide-react";
+import { Shield } from "lucide-react";
 
 function SettingsContent() {
   const { user } = useAuth();

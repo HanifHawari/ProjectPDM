@@ -23,7 +23,7 @@ function DashboardContent() {
       loadSummary();
     }, 30_000);
     return () => clearInterval(interval);
-  }, []);
+  }, [loadApplications, loadSummary]);
 
   return (
     <div className="flex h-screen overflow-hidden">
