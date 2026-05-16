@@ -11,21 +11,21 @@ interface Filters {
 }
 
 interface AppStore {
-  // Applications
+  // Daftar Pengajuan
   applications: Application[];
   totalApps: number;
   totalPages: number;
   loadingApps: boolean;
   filters: Filters;
 
-  // Summary
+  // Ringkasan Analisis
   summary: AnalyticsSummary | null;
   loadingSummary: boolean;
 
-  // UI State
+  // Status Antarmuka (UI)
   isSidebarOpen: boolean;
 
-  // Actions
+  // Fungsi-fungsi (Actions)
   setFilter: (key: keyof Filters, value: string | number) => void;
   resetFilters: () => void;
   loadApplications: () => Promise<void>;

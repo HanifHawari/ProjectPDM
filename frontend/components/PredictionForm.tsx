@@ -110,11 +110,9 @@ export function PredictionForm() {
 
   return (
     <div className="bg-white rounded-xl border border-slate-100 shadow-sm flex flex-col h-full">
-      {/* Header */}
       <div className="px-5 py-4 border-b border-slate-100">
         <h2 className="text-sm font-bold text-slate-800">Form Prediksi Pinjaman</h2>
         <p className="text-xs text-slate-500 mt-0.5">Langkah {step} dari 4 — {steps[step - 1]}</p>
-        {/* Step bar */}
         <div className="flex gap-1 mt-3">
           {steps.map((_, i) => (
             <div key={i} className={`h-1 flex-1 rounded-full transition-all duration-300 ${i + 1 <= step ? "bg-blue-600" : "bg-slate-100"}`} />
@@ -122,11 +120,10 @@ export function PredictionForm() {
         </div>
       </div>
 
-      {/* Form body */}
       <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
         {!result ? (
           <>
-        {/* Step 1 */}
+        {/* Tahap 1: Identitas */}
         {step === 1 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -161,7 +158,7 @@ export function PredictionForm() {
           </div>
         )}
 
-        {/* Step 2 */}
+        {/* Tahap 2: Pekerjaan */}
         {step === 2 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
             <Field label="Status Pekerjaan">
@@ -184,7 +181,7 @@ export function PredictionForm() {
           </div>
         )}
 
-        {/* Step 3 */}
+        {/* Tahap 3: Keuangan */}
         {step === 3 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -220,7 +217,7 @@ export function PredictionForm() {
           </div>
         )}
 
-        {/* Step 4 */}
+        {/* Tahap 4: Detail Pinjaman */}
         {step === 4 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
             <Field label="Jumlah Pinjaman (Rp)">
@@ -257,7 +254,7 @@ export function PredictionForm() {
           </>
         ) : (
           <div className="animate-in zoom-in-95 duration-300">
-            {/* Result */}
+            {/* Hasil Prediksi */}
             <div className={`rounded-xl p-4 border ${result.prediction === "Approved" ? "bg-green-50 border-green-200" : "bg-red-50 border-red-200"}`}>
               <div className="flex items-center gap-3 mb-3">
                 {result.prediction === "Approved"
@@ -271,14 +268,14 @@ export function PredictionForm() {
                   <p className="text-xs text-slate-500">Tingkat keyakinan {Math.round(result.confidence * 100)}%</p>
                 </div>
               </div>
-              {/* Confidence bar */}
+              {/* Indikator Keyakinan */}
               <div className="h-2 bg-white rounded-full overflow-hidden mb-3">
                 <div
                   className={`h-full rounded-full transition-all duration-1000 ${result.prediction === "Approved" ? "bg-green-500" : "bg-red-500"}`}
                   style={{ width: `${Math.round(result.confidence * 100)}%` }}
                 />
               </div>
-              {/* Risk factors */}
+              {/* Faktor Risiko */}
               {result.risk_factors.length > 0 && (
                 <div className="space-y-1">
                   <p className="text-xs font-semibold text-slate-600 mb-2">Faktor Risiko Utama:</p>
@@ -290,7 +287,7 @@ export function PredictionForm() {
                   ))}
                 </div>
               )}
-              {/* Actions */}
+              {/* Tombol Aksi */}
               {!isViewer && !savedId && (
                 <div className="flex gap-2 mt-4 flex-wrap">
                   <button onClick={() => saveApp("Pending Review")} disabled={saving}
@@ -322,7 +319,7 @@ export function PredictionForm() {
         )}
       </div>
 
-      {/* Footer nav */}
+      {/* Navigasi Bawah */}
       <div className="px-5 py-4 border-t border-slate-100 flex justify-between">
         <button onClick={back} disabled={step === 1 || !!result}
           className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">

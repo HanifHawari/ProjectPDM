@@ -24,8 +24,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try { setUser(JSON.parse(stored)); } catch {}
       setLoading(false);
     } else {
-      // Auto-login for demo purposes
-      // To disable auto-login and make the website public, set this to false
+      // Fitur Auto-login untuk keperluan demo
+      // Ubah ENABLE_AUTO_LOGIN ke false jika ingin menggunakan halaman login normal
       const ENABLE_AUTO_LOGIN = true; 
       
       if (ENABLE_AUTO_LOGIN) {
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    // Mock login for local mode
+    // Mock login untuk pengembangan lokal
     const authUser: AuthUser = {
       uid: "local-admin",
       name: "Admin Lokal",

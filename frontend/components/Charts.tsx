@@ -29,7 +29,7 @@ export function Charts({ summary }: ChartsProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {/* Bar: Approval rate by purpose */}
+      {/* Persentase Persetujuan Berdasarkan Tujuan Pinjaman */}
       <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-5">
         <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wide mb-4">Tingkat Persetujuan per Tujuan</h3>
         <ResponsiveContainer width="100%" height={200}>
@@ -49,7 +49,7 @@ export function Charts({ summary }: ChartsProps) {
         </ResponsiveContainer>
       </div>
 
-      {/* Donut: Employment distribution */}
+      {/* Distribusi Pekerjaan Nasabah */}
       <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-5">
         <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wide mb-4">Distribusi Pekerjaan</h3>
         <ResponsiveContainer width="100%" height={200}>
@@ -72,7 +72,7 @@ export function Charts({ summary }: ChartsProps) {
         </ResponsiveContainer>
       </div>
 
-      {/* Line: Monthly trend */}
+      {/* Tren Volume Pengajuan Bulanan */}
       <div className="bg-white rounded-xl border border-slate-100 shadow-sm p-5">
         <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wide mb-4">Volume Pengajuan Bulanan</h3>
         <ResponsiveContainer width="100%" height={200}>

@@ -1,4 +1,4 @@
-// Core types shared across the app
+// Tipe data inti yang digunakan di seluruh aplikasi
 
 export type Role = "admin" | "credit_officer" | "viewer";
 

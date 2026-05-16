@@ -48,7 +48,6 @@ export default function LoginPage() {
         pointerEvents: "none",
       }} />
 
-      {/* Center ambient glow */}
       <div style={{
         position: "absolute",
         width: 560,
@@ -69,7 +68,6 @@ export default function LoginPage() {
         alignItems: "center",
         gap: "1.5rem",
       }}>
-        {/* Brand */}
         <div style={{ textAlign: "center" }}>
           <div style={{
             display: "inline-flex",
@@ -111,7 +109,6 @@ export default function LoginPage() {
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {/* Email */}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                 <label style={{ fontSize: "0.68rem", fontWeight: 600, color: "#475569", textTransform: "uppercase", letterSpacing: "0.07em" }}>
                   Email
@@ -142,7 +139,6 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              {/* Password */}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                 <label style={{ fontSize: "0.68rem", fontWeight: 600, color: "#475569", textTransform: "uppercase", letterSpacing: "0.07em" }}>
                   Password

@@ -17,7 +17,7 @@ function DashboardContent() {
   useEffect(() => {
     loadApplications();
     loadSummary();
-    // Auto-refresh every 30s
+    // Refresh otomatis setiap 30 detik
     const interval = setInterval(() => {
       loadApplications();
       loadSummary();
@@ -29,7 +29,6 @@ function DashboardContent() {
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
       <main className="flex-1 overflow-y-auto bg-slate-50 w-full">
-        {/* Top bar */}
         <div className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-100 px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button 
@@ -49,10 +48,8 @@ function DashboardContent() {
         </div>
 
         <div className="p-6 space-y-6">
-          {/* Hero metrics */}
           <MetricCards summary={summary} loading={loadingSummary} />
 
-          {/* Prediction form + table */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6" style={{ minHeight: "520px" }}>
             <div className="lg:col-span-2">
               <PredictionForm />
@@ -62,7 +59,6 @@ function DashboardContent() {
             </div>
           </div>
 
-          {/* Analytics charts */}
           <Charts summary={summary} />
 
           {/* Heatmap */}

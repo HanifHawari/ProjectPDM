@@ -33,7 +33,7 @@ export function Sidebar() {
   const roleCfg = user ? ROLE_CONFIG[user.role] : ROLE_CONFIG.viewer;
   const RoleIcon = roleCfg.icon;
 
-  // Auto-close sidebar on mobile when route changes
+  // Tutup sidebar otomatis di mobile saat pindah halaman
   useEffect(() => {
     if (isSidebarOpen) {
       toggleSidebar(false);
@@ -43,7 +43,7 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile Overlay */}
+      {/* Overlay untuk mobile */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 md:hidden" 
@@ -59,7 +59,7 @@ export function Sidebar() {
           ${isSidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
         `}
       >
-        {/* Mobile Close Button */}
+        {/* Tombol tutup untuk mobile */}
         <button 
           onClick={() => toggleSidebar(false)}
           className="absolute top-4 right-4 md:hidden text-slate-400 hover:text-white"
@@ -67,7 +67,7 @@ export function Sidebar() {
           <X size={20} />
         </button>
 
-        {/* Logo */}
+        {/* Bagian Logo */}
         <div className="flex items-center gap-3 px-4 py-5 border-b border-white/5">
           <div className="flex items-center justify-center w-9 h-9 bg-blue-600 rounded-lg shrink-0">
             <span className="text-white font-bold text-sm">LA</span>
@@ -80,7 +80,7 @@ export function Sidebar() {
           )}
         </div>
 
-        {/* Nav */}
+        {/* Navigasi */}
         <nav className="flex-1 py-4 px-2 space-y-1">
           {NAV_ITEMS.map((item) => {
             if (item.adminOnly && user?.role !== "admin") return null;
@@ -107,7 +107,7 @@ export function Sidebar() {
           })}
         </nav>
 
-        {/* Officer Info */}
+        {/* Info Petugas */}
         <div className="px-2 pb-4 space-y-2">
           {user && (
             <div className={`px-3 py-3 rounded-lg bg-white/5 border border-white/5 ${collapsed ? "flex justify-center" : ""}`}>
@@ -152,7 +152,7 @@ export function Sidebar() {
           </button>
         </div>
 
-        {/* Collapse toggle (Desktop only) */}
+        {/* Toggle Collapse (Hanya Desktop) */}
         <button
           onClick={() => setCollapsed((c) => !c)}
           className="hidden md:flex absolute -right-3 top-[72px] w-6 h-6 rounded-full bg-[#0F2544] border border-white/10

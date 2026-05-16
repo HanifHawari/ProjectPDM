@@ -46,12 +46,11 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
           <button onClick={onClose} className="text-slate-400 hover:text-slate-700 text-xl font-light">✕</button>
         </div>
         <div className="px-6 py-5 space-y-5">
-          {/* Status */}
           <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold border ${STATUS_BADGE[app.status] ?? ""}`}>
             {STATUS_LABELS[app.status] || app.status}
           </span>
 
-          {/* Prediction result */}
+          {/* Hasil Prediksi AI */}
           {app.prediction && (
             <div className={`rounded-xl p-4 ${app.prediction === "Approved" ? "bg-green-50 border border-green-200" : "bg-red-50 border border-red-200"}`}>
               <p className={`font-bold text-sm ${app.prediction === "Approved" ? "text-green-700" : "text-red-600"}`}>
@@ -72,7 +71,7 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
             </div>
           )}
 
-          {/* Key financials */}
+          {/* Ringkasan Keuangan */}
           <div>
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Keuangan</p>
             <div className="grid grid-cols-2 gap-3 text-sm">
@@ -92,7 +91,7 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
             </div>
           </div>
 
-          {/* Risk factors */}
+          {/* Faktor Risiko */}
           {app.risk_factors && app.risk_factors.length > 0 && (
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Faktor Risiko</p>
@@ -104,7 +103,7 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
             </div>
           )}
 
-          {/* Officer actions */}
+          {/* Tombol Aksi Petugas */}
           {user?.role !== "viewer" && (
             <div>
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Tindakan</p>
@@ -127,7 +126,7 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
             </div>
           )}
 
-          {/* Meta */}
+          {/* Metadata */}
           <div className="text-xs text-slate-400 pt-2 border-t border-slate-100">
             <p>Dibuat: {new Date(app.created_at).toLocaleDateString("id-ID")}</p>
             {app.officer_name && <p>Petugas: {app.officer_name}</p>}
@@ -161,7 +160,7 @@ export function ApplicationsTable() {
 
   return (
     <div className="bg-white rounded-xl border border-slate-100 shadow-sm flex flex-col h-full">
-      {/* Toolbar */}
+      {/* Area Filter & Pencarian */}
       <div className="px-5 py-4 border-b border-slate-100">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-sm font-bold text-slate-800">Daftar Pengajuan <span className="text-slate-400 font-normal">({totalApps})</span></h2>
@@ -190,7 +189,7 @@ export function ApplicationsTable() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* Bagian Tabel Data */}
       <div className="flex-1 overflow-auto w-full">
         <div className="min-w-max">
           <table className="w-full text-xs">
@@ -235,7 +234,7 @@ export function ApplicationsTable() {
         </div>
       </div>
 
-      {/* Pagination */}
+      {/* Navigasi Halaman */}
       <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between">
         <p className="text-xs text-slate-500">Halaman {filters.page} dari {totalPages}</p>
         <div className="flex gap-1">
@@ -250,7 +249,7 @@ export function ApplicationsTable() {
         </div>
       </div>
 
-      {/* Slide-out panel */}
+      {/* Panel Samping Detail */}
       {selected && (
         <SlideOutPanel app={selected} onClose={() => setSelected(null)} onUpdateStatus={handleStatus} />
       )}

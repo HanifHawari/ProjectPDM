@@ -68,7 +68,7 @@ export function HeatmapRisk({ applications }: HeatmapRiskProps) {
       </div>
       <div className="overflow-x-auto">
         <div className="inline-flex flex-col">
-          {/* X-axis labels */}
+          {/* Label Sumbu X */}
           <div className="flex ml-10 mb-1">
             {CREDIT_BUCKETS.map((cs) => (
               <div key={cs} style={{ width: CELL_W }} className="text-center text-[9px] text-slate-400 font-medium">{cs}</div>
@@ -94,7 +94,7 @@ export function HeatmapRisk({ applications }: HeatmapRiskProps) {
               })}
             </div>
           ))}
-          {/* Axis labels */}
+          {/* Label Sumbu */}
           <div className="flex ml-10 mt-1">
             <div className="text-[9px] text-slate-400 text-center" style={{ width: CELL_W * CREDIT_BUCKETS.length }}>
               ← Skor Kredit →
