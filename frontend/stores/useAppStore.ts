@@ -22,6 +22,9 @@ interface AppStore {
   summary: AnalyticsSummary | null;
   loadingSummary: boolean;
 
+  // UI State
+  isSidebarOpen: boolean;
+
   // Actions
   setFilter: (key: keyof Filters, value: string | number) => void;
   resetFilters: () => void;
@@ -30,6 +33,7 @@ interface AppStore {
   updateApplicationStatus: (id: string, status: ApplicationStatus, officerName?: string) => Promise<void>;
   addApplication: (app: Application) => void;
   refresh: () => Promise<void>;
+  toggleSidebar: (isOpen?: boolean) => void;
 }
 
 const DEFAULT_FILTERS: Filters = {
@@ -49,6 +53,8 @@ export const useAppStore = create<AppStore>((set, get) => ({
 
   summary: null,
   loadingSummary: false,
+
+  isSidebarOpen: false,
 
   setFilter: (key, value) => {
     set((s) => ({
@@ -108,5 +114,9 @@ export const useAppStore = create<AppStore>((set, get) => ({
 
   refresh: async () => {
     await Promise.all([get().loadApplications(), get().loadSummary()]);
+  },
+
+  toggleSidebar: (isOpen?: boolean) => {
+    set((s) => ({ isSidebarOpen: isOpen !== undefined ? isOpen : !s.isSidebarOpen }));
   },
 }));

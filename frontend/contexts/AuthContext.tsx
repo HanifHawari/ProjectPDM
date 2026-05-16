@@ -22,8 +22,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const stored = localStorage.getItem("auth_user");
     if (stored) {
       try { setUser(JSON.parse(stored)); } catch {}
+      setLoading(false);
+    } else {
+      // Auto-login for demo purposes
+      // To disable auto-login and make the website public, set this to false
+      const ENABLE_AUTO_LOGIN = true; 
+      
+      if (ENABLE_AUTO_LOGIN) {
+        const mockAdmin: AuthUser = {
+          uid: "local-admin",
+          name: "Admin Lokal",
+          email: "petugas@bank.co.id",
+          role: "admin",
+        };
+        localStorage.setItem("auth_token", "mock-token");
+        localStorage.setItem("auth_user", JSON.stringify(mockAdmin));
+        setUser(mockAdmin);
+      }
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
 
   const signIn = async (email: string, password: string) => {

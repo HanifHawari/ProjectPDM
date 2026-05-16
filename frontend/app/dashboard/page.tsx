@@ -9,10 +9,10 @@ import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { Charts } from "@/components/Charts";
 import { HeatmapRisk } from "@/components/HeatmapRisk";
 import { useAppStore } from "@/stores/useAppStore";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw, Menu } from "lucide-react";
 
 function DashboardContent() {
-  const { summary, loadingSummary, applications, refresh, loadApplications, loadSummary } = useAppStore();
+  const { summary, loadingSummary, applications, refresh, loadApplications, loadSummary, toggleSidebar } = useAppStore();
 
   useEffect(() => {
     loadApplications();
@@ -28,15 +28,23 @@ function DashboardContent() {
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto bg-slate-50">
+      <main className="flex-1 overflow-y-auto bg-slate-50 w-full">
         {/* Top bar */}
         <div className="sticky top-0 z-10 bg-white/80 backdrop-blur border-b border-slate-100 px-6 py-3 flex items-center justify-between">
-          <div>
-            <h1 className="text-sm font-bold text-slate-800">Dashboard</h1>
-            <p className="text-xs text-slate-500">Platform Persetujuan Pinjaman</p>
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => toggleSidebar()} 
+              className="md:hidden text-slate-500 hover:text-slate-800"
+            >
+              <Menu size={20} />
+            </button>
+            <div>
+              <h1 className="text-sm font-bold text-slate-800">Dashboard</h1>
+              <p className="text-xs text-slate-500 hidden sm:block">Platform Persetujuan Pinjaman</p>
+            </div>
           </div>
           <button onClick={() => refresh()} className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 transition-colors">
-            <RefreshCw size={13} /> Segarkan
+            <RefreshCw size={13} /> <span className="hidden sm:inline">Segarkan</span>
           </button>
         </div>
 

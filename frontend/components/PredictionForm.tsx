@@ -129,7 +129,7 @@ export function PredictionForm() {
         {/* Step 1 */}
         {step === 1 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Field label="Usia">
                 <input type="number" value={form.age} onChange={(e) => set("age", +e.target.value)} className={inputCls} />
                 {errors.age && <p className="text-red-500 text-xs mt-1">{errors.age}</p>}
@@ -141,7 +141,7 @@ export function PredictionForm() {
                 </select>
               </Field>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Field label="Status Pernikahan">
                 <select value={form.marital_status} onChange={(e) => set("marital_status", e.target.value)} className={selectCls}>
                   <option value="Single">Lajang</option>
@@ -187,7 +187,7 @@ export function PredictionForm() {
         {/* Step 3 */}
         {step === 3 && (
           <div className="space-y-4 animate-in slide-in-from-right-4 duration-200">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Field label="Pendapatan Bulanan (Rp)">
                 <input type="number" value={form.applicant_income} onChange={(e) => set("applicant_income", +e.target.value)} className={inputCls} />
                 {errors.applicant_income && <p className="text-red-500 text-xs mt-1">{errors.applicant_income}</p>}
@@ -196,7 +196,7 @@ export function PredictionForm() {
                 <input type="number" value={form.coapplicant_income} onChange={(e) => set("coapplicant_income", +e.target.value)} className={inputCls} />
               </Field>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Field label="Total Tabungan (Rp)">
                 <input type="number" value={form.savings} onChange={(e) => set("savings", +e.target.value)} className={inputCls} />
               </Field>
@@ -204,7 +204,7 @@ export function PredictionForm() {
                 <input type="number" value={form.collateral_value} onChange={(e) => set("collateral_value", +e.target.value)} className={inputCls} />
               </Field>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Field label="Jumlah Pinjaman Lain">
                 <input type="number" value={form.existing_loans} min={0} onChange={(e) => set("existing_loans", +e.target.value)} className={inputCls} />
               </Field>

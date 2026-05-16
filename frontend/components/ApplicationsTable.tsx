@@ -37,7 +37,7 @@ function SlideOutPanel({ app, onClose, onUpdateStatus }: SlideOutPanelProps) {
   return (
     <div className="fixed inset-0 z-50 flex">
       <div className="flex-1 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="w-[400px] bg-white h-full shadow-2xl overflow-y-auto animate-in slide-in-from-right-full duration-300">
+      <div className="w-full sm:w-[400px] bg-white h-full shadow-2xl overflow-y-auto animate-in slide-in-from-right-full duration-300">
         <div className="sticky top-0 bg-white border-b border-slate-100 px-6 py-4 flex items-center justify-between">
           <div>
             <h3 className="font-bold text-slate-800">{app.id}</h3>
@@ -170,7 +170,7 @@ export function ApplicationsTable() {
           </button>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <div className="relative flex-1 min-w-[160px]">
+          <div className="relative flex-1 min-w-[160px] w-full sm:w-auto">
             <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Cari ID atau nama…"
               className="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/40" />
@@ -191,11 +191,12 @@ export function ApplicationsTable() {
       </div>
 
       {/* Table */}
-      <div className="flex-1 overflow-auto">
-        <table className="w-full text-xs">
-          <thead className="sticky top-0 bg-slate-50 border-b border-slate-100">
-            <tr>
-              {["ID", "Pendapatan", "Jml Pinjaman", "Skor", "DTI", "Tujuan", "Status"].map((h) => (
+      <div className="flex-1 overflow-auto w-full">
+        <div className="min-w-max">
+          <table className="w-full text-xs">
+            <thead className="sticky top-0 bg-slate-50 border-b border-slate-100">
+              <tr>
+                {["ID", "Pendapatan", "Jml Pinjaman", "Skor", "DTI", "Tujuan", "Status"].map((h) => (
                 <th key={h} className="px-4 py-3 text-left font-semibold text-slate-500 uppercase tracking-wide whitespace-nowrap">{h}</th>
               ))}
             </tr>
@@ -231,6 +232,7 @@ export function ApplicationsTable() {
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Pagination */}
